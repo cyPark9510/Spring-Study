@@ -1,0 +1,22 @@
+package hello.core.Order.service;
+
+import hello.core.Order.entity.Order;
+import hello.core.discount.DiscountPolicy;
+import hello.core.discount.FixDiscoundPolicy;
+import hello.core.member.entity.Member;
+import hello.core.member.repository.MemberRepository;
+import hello.core.member.repository.MemoryMemberRepository;
+
+public class OrderServiceImpl implements OrderService {
+
+    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final DiscountPolicy discountPolicy = new FixDiscoundPolicy();
+
+    @Override
+    public Order createOrder(Long memberId, String itemName, int itemPrice) {
+        Member member = memberRepository.findById(memberId);
+        int discountPrice = discountPolicy.discount(member, itemPrice);
+
+        return new Order(memberId, itemName, itemPrice, discountPrice);
+    }
+}
