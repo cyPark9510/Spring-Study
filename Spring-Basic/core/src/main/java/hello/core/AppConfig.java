@@ -1,7 +1,7 @@
 package hello.core;
 
-import hello.core.Order.service.OrderService;
-import hello.core.Order.service.OrderServiceImpl;
+import hello.core.order.service.OrderService;
+import hello.core.order.service.OrderServiceImpl;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.repository.MemberRepository;

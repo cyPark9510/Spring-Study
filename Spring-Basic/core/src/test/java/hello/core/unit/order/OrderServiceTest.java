@@ -1,8 +1,8 @@
 package hello.core.unit.order;
 
 import hello.core.AppConfig;
-import hello.core.Order.entity.Order;
-import hello.core.Order.service.OrderService;
+import hello.core.order.entity.Order;
+import hello.core.order.service.OrderService;
 import hello.core.member.entity.Member;
 import hello.core.member.repository.Grade;
 import hello.core.member.service.MemberService;

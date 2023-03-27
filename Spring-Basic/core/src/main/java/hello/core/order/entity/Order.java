@@ -1,4 +1,4 @@
-package hello.core.Order.entity;
+package hello.core.order.entity;
 
 public class Order {
 

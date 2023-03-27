@@ -1,7 +1,7 @@
 package hello.core.singleton;
 
 import hello.core.AppConfig;
-import hello.core.Order.service.OrderServiceImpl;
+import hello.core.order.service.OrderServiceImpl;
 import hello.core.member.repository.MemberRepository;
 import hello.core.member.service.MemberServiceImpl;
 import org.junit.jupiter.api.Test;
