@@ -35,13 +35,17 @@ public class AppConfig {
     @Bean
     public MemberService memberService() {
         System.out.println("call AppConfig.memberService");
-        return new MemberServiceImpl(memberRepository());
+        MemberServiceImpl memberService = new MemberServiceImpl();
+        memberService.init(memberRepository());
+        return memberService;
     }
 
     @Bean
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
+        OrderServiceImpl orderService = new OrderServiceImpl();
+        orderService.init(memberRepository(), discountPolicy());
+        return orderService;
     }
 
     @Bean
