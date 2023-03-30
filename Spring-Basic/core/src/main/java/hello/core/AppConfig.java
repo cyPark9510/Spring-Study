@@ -36,7 +36,7 @@ public class AppConfig {
     public MemberService memberService() {
         System.out.println("call AppConfig.memberService");
         MemberServiceImpl memberService = new MemberServiceImpl();
-        memberService.init(memberRepository());
+        memberService.setMemberRepository(memberRepository());
         return memberService;
     }
 
@@ -44,7 +44,8 @@ public class AppConfig {
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
         OrderServiceImpl orderService = new OrderServiceImpl();
-        orderService.init(memberRepository(), discountPolicy());
+        orderService.setMemberRepository(memberRepository());
+        orderService.setDiscountPolicy(discountPolicy());
         return orderService;
     }
 

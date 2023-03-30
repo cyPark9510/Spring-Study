@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class MemberServiceImpl implements MemberService {
 
+    @Autowired
     private MemberRepository memberRepository;
 
-    @Autowired
-    public void init(MemberRepository memberRepository) {
+    public void setMemberRepository(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 
