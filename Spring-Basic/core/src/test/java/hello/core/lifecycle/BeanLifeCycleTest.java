@@ -20,9 +20,9 @@ public class BeanLifeCycleTest {
         // then
         /* 출력결과
         생성자 호출, url = null
-        connect: null
-        call: null / message = 초기화 연결 메시지
-        close: null
+        connect: https://hello-spring.dev
+        call: https://hello-spring.dev / message = 초기화 연결 메시지
+        close: https://hello-spring.dev
          */
     }
 
