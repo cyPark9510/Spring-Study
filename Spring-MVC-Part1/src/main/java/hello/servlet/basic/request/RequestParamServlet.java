@@ -19,6 +19,8 @@ public class RequestParamServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        printParams(request);
+        printParam(request);
         printMultiParam(request);
     }
 
