@@ -1,6 +1,7 @@
 package hello.springmvc.basic.requestmapping;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,20 @@ public class MappingController {
     @RequestMapping(value = "/mapping-get-v1", method = RequestMethod.GET)
     public String mappingGetV1() {
         log.info("mappingGetV1");
+        return "ok";
+    }
+
+    /**
+     * 축약 애노테이션
+     * @GetMapping
+     * @PostMapping
+     * @PutMapping
+     * @DeleteMapping
+     * @PatchMapping
+     */
+    @GetMapping(value = "/mapping-get-v2")
+    public String mappingGetV2() {
+        log.info("mapping-get-v2");
         return "ok";
     }
 }
