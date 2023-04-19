@@ -1,10 +1,7 @@
 package hello.springmvc.basic.requestmapping;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -39,6 +36,17 @@ public class MappingController {
     @GetMapping(value = "/mapping-get-v2")
     public String mappingGetV2() {
         log.info("mapping-get-v2");
+        return "ok";
+    }
+
+    /**
+     * PathVariable 사용
+     * 변수명이 같으면 생략 가능
+     * @PathVariable("userId") String userId -> @PathVariable userId
+     */
+    @GetMapping("/mapping/{userId}")
+    public String mappingPath(@PathVariable String userId) {
+        log.info("mappingPath userId={}", userId);
         return "ok";
     }
 }
