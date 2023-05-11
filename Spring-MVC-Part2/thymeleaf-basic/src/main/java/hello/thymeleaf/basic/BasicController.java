@@ -1,7 +1,11 @@
 package hello.thymeleaf.basic;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,10 +52,32 @@ public class BasicController {
         return "basic/variable";
     }
 
+    @GetMapping("/basic-objects")
+    public String basicObjects(Model model,
+                               HttpServletRequest request,
+                               HttpServletResponse response,
+                               HttpSession session) {
+        session.setAttribute("sessionData", "Hello Session");
+
+        // 스프링 부트 3.0 부터 지원하지 않는다.
+        model.addAttribute("request", request);
+        model.addAttribute("response", response);
+        model.addAttribute("servletContext", request.getServletContext());
+
+        return "basic/basic-objects";
+    }
+
     @Getter
     @AllArgsConstructor
     static class User {
         private String username;
         private int age;
+    }
+
+    @Component("helloBean")
+    static class HelloBean {
+        public String hello(String data) {
+            return "Hello " + data;
+        }
     }
 }
