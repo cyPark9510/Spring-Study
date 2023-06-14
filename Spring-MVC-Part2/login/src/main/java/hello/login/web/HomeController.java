@@ -6,9 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import static hello.login.web.SessionConst.LOGIN_MEMBER;
 
@@ -18,14 +16,7 @@ import static hello.login.web.SessionConst.LOGIN_MEMBER;
 public class HomeController {
 
     @GetMapping("/")
-    public String homeLogin(HttpServletRequest request, Model model) {
-        HttpSession session = request.getSession(false);
-        if (session == null) {
-            return "home";
-        }
-
-        Member loginMember = (Member) session.getAttribute(LOGIN_MEMBER);
-
+    public String homeLogin(@SessionAttribute(name = LOGIN_MEMBER, required = false) Member loginMember, Model model) {
         // 세션에 회원 데이터가 없으면 home
         if (loginMember == null) {
             return "home";
