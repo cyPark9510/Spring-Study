@@ -23,6 +23,11 @@ public class FormatterController {
         return "formatter-form";
     }
 
+    @PostMapping("/formatter/edit")
+    public String formatterEdit(@ModelAttribute Form form) {
+        return "formatter-view";
+    }
+
     @Data
     @AllArgsConstructor
     static class Form {
